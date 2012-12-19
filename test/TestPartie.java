@@ -12,15 +12,15 @@ public class TestPartie {
 
 	@Test
 	public void leScoreDUnePartieGoutiereEstZéro() {
-		nouveauxLancés(20, 0);
+		nouveauxLancers(20, 0);
 
 		assertThat(partie.score()).isEqualTo(0);
 	}
 
 	@Test
 	public void leScoreDUnePartieModesteEstAussiModeste() {
-		partie.nouveauLancé(1);
-		nouveauxLancés(19, 0);
+		partie.nouveauLancer(1);
+		nouveauxLancers(19, 0);
 
 		assertThat(partie.score()).isEqualTo(1);
 	}
@@ -28,51 +28,51 @@ public class TestPartie {
 	@Test
 	public void leScorePrendEnCompteUnSpare() {
 		nouveauSpare();
-		partie.nouveauLancé(1);
-		nouveauxLancés(17, 0);
+		partie.nouveauLancer(1);
+		nouveauxLancers(17, 0);
 
 		assertThat(partie.score()).isEqualTo(12);
 	}
 
 	@Test
 	public void leScorePrendEnCompteUnStrike() {
-		partie.nouveauLancé(10);
-		partie.nouveauLancé(1);
-		partie.nouveauLancé(2);
-		nouveauxLancés(16, 0);
+		partie.nouveauLancer(10);
+		partie.nouveauLancer(1);
+		partie.nouveauLancer(2);
+		nouveauxLancers(16, 0);
 
 		assertThat(partie.score()).isEqualTo(16);
 	}
 
 	@Test // facultatif
 	public void leScoreDUnePartieDe8Est80() {
-		nouveauxLancés(20, 4);
+		nouveauxLancers(20, 4);
 
 		assertThat(partie.score()).isEqualTo(80);
 	}
 
 	@Test // facultatif
 	public void leScoreDUnePartieDeSparesEst150() {
-		nouveauxLancés(21, 5);
+		nouveauxLancers(21, 5);
 
 		assertThat(partie.score()).isEqualTo(150);
 	}
 
 	@Test // facultatif
 	public void leScoreMaximalEst300() {
-		nouveauxLancés(12, 10);
+		nouveauxLancers(12, 10);
 
 		assertThat(partie.score()).isEqualTo(300);
 	}
 
 	private void nouveauSpare() {
-		partie.nouveauLancé(3);
-		partie.nouveauLancé(7);
+		partie.nouveauLancer(3);
+		partie.nouveauLancer(7);
 	}
 
-	private void nouveauxLancés(int nombre, int quilles) {
+	private void nouveauxLancers(int nombre, int quilles) {
 		for (int i = 0; i < nombre; i++) {
-			partie.nouveauLancé(quilles);
+			partie.nouveauLancer(quilles);
 		}
 	}
 
