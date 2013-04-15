@@ -1,3 +1,5 @@
+package BowlingJava;
+
 import static org.fest.assertions.Assertions.*;
 
 import org.junit.Before;
