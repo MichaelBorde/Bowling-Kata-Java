@@ -1,4 +1,4 @@
-package BowlingJava;
+package bowling;
 
 import static org.fest.assertions.Assertions.*;
 
